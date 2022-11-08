@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 5775856842519046897}
   - component: {fileID: 2795800966796254899}
   - component: {fileID: 5717687638777582385}
+  - component: {fileID: 6913598222305629729}
+  - component: {fileID: 7710593038315174243}
   m_Layer: 0
   m_Name: Shell
   m_TagString: Untagged
@@ -98,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a460c8290e014c3caa73ba461ac9a10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosion: {fileID: 0}
+  explosion: {fileID: 195792, guid: 89e78efe92dfe5a42837b392cdb0bf9e, type: 3}
 --- !u!114 &2795800966796254899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118,8 +120,38 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9162047389006064978}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6a6fb27f3115e3f47a4d344ecd21a4d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &6913598222305629729
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9162047389006064978}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.17
+  m_Height: 0.58
+  m_Direction: 2
+  m_Center: {x: 0, y: 0.000000007450581, z: 0.19800001}
+--- !u!54 &7710593038315174243
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9162047389006064978}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
