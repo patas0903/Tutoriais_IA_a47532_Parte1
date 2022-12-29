@@ -1,16 +1,17 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class GAction : MonoBehaviour
+public abstract class GAction : MonoBehaviour
 {
-
     public string actionName = "Action";
     public float cost = 1.0f;
     public GameObject target;
     public GameObject targetTag;
     public float duration = 0;
     public WorldState[] preConditions;
+    public WorldState[] afterEffects;
     public NavMeshAgent agent;
 
     public Dictionary<string, int> preconditions;
@@ -31,16 +32,17 @@ public class GAction : MonoBehaviour
         agent = this.gameObject.GetComponent<NavMeshAgent>();
 
         if (preConditions != null)
-            foreach (WolrdStates w in preConditions)
+            foreach (WorldState w in preConditions)
             {
                 preconditions.Add(w.key, w.value);
             }
 
         if (afterEffects != null)
-            foreach (WorldStates w in afterEffects)
+            foreach (WorldState w in afterEffects)
             {
-                effects.Add(w.key, w.value);   
+                effects.Add(w.key, w.value);
             }
+            
     }
 
     public bool IsAchievable()
@@ -50,7 +52,7 @@ public class GAction : MonoBehaviour
 
     public bool IsAchievableGiven(Dictionary<string, int> conditions)
     {
-        foreach (KeyValuePair<string,int> p in preconditions)
+        foreach (KeyValuePair<string, int> p in preconditions)
         {
             if (!conditions.ContainsKey(p.Key))
                 return false;
@@ -60,7 +62,4 @@ public class GAction : MonoBehaviour
 
     public abstract bool PrePerform();
     public abstract bool PostPerform();
-
-
-
 }
